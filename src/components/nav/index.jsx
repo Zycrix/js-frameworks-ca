@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Nav, NavUl, Input, MenuButton, Form } from "../styles";
+import { NavLink, Link } from "react-router-dom";
+import { Nav, NavUl, Input, MenuButton, Form, CartContainer } from "../styles";
 
 function App() {
   const path = window.location.pathname;
@@ -17,24 +17,35 @@ function App() {
       </MenuButton>
       <NavUl open={open}>
         <li>
-          <NavLink exact="true" className={path === "/" ? true : false} to="/">
+          <NavLink
+            exact="true"
+            onClick={toggleMenu}
+            className={path === "/" ? true : false}
+            to="/"
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink className={path === "/contact" ? true : false} to="/contact">
+          <NavLink
+            onClick={toggleMenu}
+            className={path === "/contact" ? true : false}
+            to="/contact"
+          >
             Contact
           </NavLink>
         </li>
       </NavUl>
       <div>
         <Form>
-          <Input type="text" placeholder="Search" />
+          <Input type="text" placeholder="Search products" />
         </Form>
       </div>
-      <div>
-        <span className="material-symbols-outlined">shopping_cart</span>
-      </div>
+      <CartContainer>
+        <Link to="/cart">
+          <span className="material-symbols-outlined">shopping_cart</span>
+        </Link>
+      </CartContainer>
     </Nav>
   );
 }
