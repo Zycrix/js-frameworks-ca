@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const primaryColor = "hotpink";
+const primaryColor = "#5561AD";
 const secondaryColor = "lightblue";
 const activeColor = "red";
 const textColor = "black";
