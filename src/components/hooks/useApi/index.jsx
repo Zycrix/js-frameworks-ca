@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+const test = window.location.href;
 
 function App(url) {
   const [data, setData] = useState([]);
@@ -22,6 +23,8 @@ function App(url) {
     }
 
     getData();
-  }, [url]);
+  }, [null]);
   return { data, loading, error };
 }
+
+export default App;
