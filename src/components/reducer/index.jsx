@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 
 const initialState = {
   cart: [],
@@ -29,6 +29,7 @@ function reducer(state, action) {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
       }, 0);
+      console.log(cart);
       return { ...state, cart: cart, total: newTotal };
     case "removeCart":
       cart = [...state.cart];
@@ -47,6 +48,11 @@ function reducer(state, action) {
             ...cart.slice(productIndex + 1),
           ];
         }
+      } else {
+        cart = [
+          ...cart.slice(0, productIndex),
+          ...cart.slice(productIndex + 1),
+        ];
       }
       newTotal = cart.reduce((currentTotal, product) => {
         currentTotal += product.discountedPrice * product.quantity;
@@ -55,3 +61,5 @@ function reducer(state, action) {
       return { ...state, cart: cart, total: newTotal };
   }
 }
+
+export { initialState, reducer };

@@ -10,6 +10,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/contact" element={<div>CONTACT</div>} />
         <Route path="/cart" element={<div>CART</div>} />
+        <Route path="/product/:id" element={<div>product</div>} />
       </Route>
     </Routes>
   );

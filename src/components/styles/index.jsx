@@ -162,6 +162,10 @@ export const InfoContainer = styled.div`
       color: red;
     }
   }
+  button {
+    width: 100%;
+    color: white;
+  }
 `;
 
 export const FadedText = styled.p`
@@ -186,4 +190,11 @@ export const DiscountOverlay = styled.div`
     left: -70px;
     display: block;
   }
+`;
+
+export const PrimaryButton = styled.button`
+  background-color: ${primaryColor};
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
 `;
