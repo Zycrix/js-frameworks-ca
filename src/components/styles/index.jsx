@@ -1,9 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const primaryColor = "#5561AD";
 const secondaryColor = "lightblue";
 const activeColor = "red";
 const textColor = "black";
+const discountColor = "#FA635C";
+const fadedTextColor = "#878787";
 
 export const Header = styled.header`
   background-color: ${primaryColor};
@@ -12,6 +14,15 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+  top: 0;
+`;
+
+export const HeaderSpacer = styled.div`
+  height: 7vh;
+  width: 100%;
 `;
 
 export const Nav = styled.nav`
@@ -73,4 +84,106 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const loaderAnimation = keyframes`
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loader = styled.img`
+  max-width: 60px;
+  animation-name: ${loaderAnimation};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+`;
+
+export const LoaderContainer = styled.div`
+  width: 50%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Main = styled.main`
+  width: 90%;
+  margin: 0 auto;
+`;
+
+export const MainHeading = styled.h1`
+  text-align: center;
+`;
+
+export const ProductCard = styled.div`
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem 0;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  img {
+    width: 100%;
+    max-height: 40vh;
+    object-fit: cover;
+    object-position: center;
+  }
+`;
+
+export const InfoContainer = styled.div`
+  padding: 0.5rem;
+  margin: 1rem;
+  h2 {
+    margin: 0;
+    text-align: center;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+  .price-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      display: flex;
+      align-items: center;
+      span {
+        color: #f5d239;
+      }
+    }
+    .onSale-text {
+      color: red;
+    }
+  }
+`;
+
+export const FadedText = styled.p`
+  color: ${fadedTextColor};
+  font-size: 0.8rem !important;
+  text-decoration: line-through;
+`;
+
+export const DiscountOverlay = styled.div`
+  position: absolute;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  span {
+    background-color: ${discountColor};
+    transform: rotate(-45deg);
+    width: 225px;
+    padding: 15px 0;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: -70px;
+    display: block;
+  }
 `;

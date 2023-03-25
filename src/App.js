@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./pages/homepage";
