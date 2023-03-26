@@ -213,3 +213,58 @@ export const PrimaryButton = styled.button`
   border: none;
   border-radius: 5px;
 `;
+
+export const ProductImg = styled.img`
+  width: 100%;
+  max-height: 40vh;
+  object-fit: cover;
+`;
+
+export const ImgContainer = styled.div`
+  position: relative;
+`;
+
+export const ProductInfo = styled.div`
+  h1 {
+    text-align: center;
+  }
+`;
+
+export const Description = styled.div`
+  margin: 1rem;
+  padding: 0 0.5rem;
+`;
+
+export const ReviewContainer = styled.div`
+  margin: 2rem 1rem;
+  padding: 0 0.5rem;
+  h2,
+  section {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2),
+      10px 30px 20px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  section {
+    background-color: white;
+    margin: 1rem 0;
+  }
+`;
+
+export const ReviewContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    max-width: 60%;
+    margin: 0;
+  }
+  div p {
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+  }
+  div p span {
+    color: #f5d239;
+  }
+`;

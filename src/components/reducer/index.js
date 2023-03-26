@@ -68,7 +68,6 @@ const local = JSON.parse(localStorage.getItem("cart"));
 if (local) {
   initialState.cart.push(...local);
 }
-console.log(local);
 function CartProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (

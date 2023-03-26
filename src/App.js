@@ -11,12 +11,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
-  console.log(state.cart);
 
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(window.location.pathname);
   }, [location.pathname]);
 
   return (

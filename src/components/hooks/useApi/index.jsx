@@ -22,7 +22,6 @@ function useApi(url) {
           const json = await data.json();
           setData(json);
           // window.localStorage.setItem("data", JSON.stringify(json));
-          console.log(json);
         }
       } catch (e) {
         console.log(e);
