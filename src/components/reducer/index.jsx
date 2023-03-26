@@ -59,6 +59,8 @@ function reducer(state, action) {
         return currentTotal;
       }, 0);
       return { ...state, cart: cart, total: newTotal };
+    default:
+      throw new Error();
   }
 }
 

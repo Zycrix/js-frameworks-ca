@@ -11,7 +11,7 @@ import { reducer, initialState } from "../reducer";
 
 function App(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  console.log(state);
   const navigate = useNavigate();
 
   const handleAddToCart = (e, item) => {
