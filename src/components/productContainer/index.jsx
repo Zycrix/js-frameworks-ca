@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ProductCard,
@@ -7,11 +7,10 @@ import {
   FadedText,
   PrimaryButton,
 } from "../styles";
-import { reducer, initialState } from "../reducer";
+import { CartContext } from "../reducer";
 
 function App(props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleAddToCart = (e, item) => {

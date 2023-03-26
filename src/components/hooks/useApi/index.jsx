@@ -21,7 +21,7 @@ function useApi(url) {
           const data = await fetch(url);
           const json = await data.json();
           setData(json);
-          window.localStorage.setItem("data", JSON.stringify(json));
+          // window.localStorage.setItem("data", JSON.stringify(json));
           console.log(json);
         }
       } catch (e) {

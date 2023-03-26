@@ -76,6 +76,21 @@ export const Form = styled.form`
 
 export const CartContainer = styled.div`
   padding-right: 10px;
+  position: relative;
+`;
+
+export const CartOverlay = styled.div`
+  position: absolute;
+  background-color: ${discountColor};
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: translate(50%, -50%);
 `;
 
 export const Footer = styled.footer`

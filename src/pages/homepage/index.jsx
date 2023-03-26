@@ -8,7 +8,6 @@ import ProductContainer from "../../components/productContainer";
 function App() {
   const { data, loading, error, errorMessage } = useApi(url);
 
-  console.log(errorMessage);
   return (
     <Main>
       <MainHeading>All products</MainHeading>

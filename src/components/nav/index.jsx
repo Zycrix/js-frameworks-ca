@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Nav, NavUl, Input, MenuButton, Form, CartContainer } from "../styles";
+import { CartContext } from "../reducer";
+import {
+  Nav,
+  NavUl,
+  Input,
+  MenuButton,
+  Form,
+  CartContainer,
+  CartOverlay,
+} from "../styles";
 
 function App() {
   const path = window.location.pathname;
   const [open, setOpen] = useState(false);
-
+  const { state } = useContext(CartContext);
+  let cartItemsLength = 0;
   function toggleMenu() {
     setOpen(!open);
+  }
+
+  if (state.cart.length > 0) {
+    cartItemsLength = state.cart.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
   }
 
   return (
@@ -44,6 +60,7 @@ function App() {
       <CartContainer>
         <Link to="/cart">
           <span className="material-symbols-outlined">shopping_cart</span>
+          <CartOverlay>{cartItemsLength}</CartOverlay>
         </Link>
       </CartContainer>
     </Nav>

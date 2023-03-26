@@ -1,3 +1,5 @@
+import React, { useReducer, createContext } from "react";
+
 const initialState = {
   cart: [],
   total: 0,
@@ -27,7 +29,6 @@ function reducer(state, action) {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
       }, 0);
-      console.log(cart);
       return { ...state, cart: cart, total: newTotal };
     case "removeCart":
       cart = [...state.cart];
@@ -62,4 +63,19 @@ function reducer(state, action) {
   }
 }
 
-export { initialState, reducer };
+const CartContext = createContext();
+const local = JSON.parse(localStorage.getItem("cart"));
+if (local) {
+  initialState.cart.push(...local);
+}
+console.log(local);
+function CartProvider(props) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <CartContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </CartContext.Provider>
+  );
+}
+
+export { CartContext, CartProvider };
