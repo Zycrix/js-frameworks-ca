@@ -20,3 +20,7 @@ npm start
 - Styled-components
 - Web-vitals
 - eslint
+
+### Live version:
+
+[netlify link](https://stellular-seahorse-3ebe12.netlify.app/)

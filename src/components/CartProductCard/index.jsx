@@ -16,7 +16,6 @@ function App() {
     e.stopPropagation();
     dispatch({ type: "removeCart", payload: item });
   }
-  console.log(state);
   return (
     <CartWrapper>
       {cart.map((item) => (

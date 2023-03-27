@@ -80,6 +80,14 @@ function reducer(state, action) {
         total: newTotal,
         originalPrice: newOriginalPrice,
       };
+    case "clearCart":
+      console.log("clearCart");
+      return {
+        ...state,
+        cart: [],
+        total: 0,
+        originalPrice: 0,
+      };
     default:
       throw new Error();
   }

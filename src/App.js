@@ -4,6 +4,7 @@ import Layout from "./components/layout";
 import Home from "./pages/homepage";
 import Product from "./pages/product";
 import Cart from "./pages/cart";
+import Checkout from "./pages/checkoutSuccess";
 import { CartContext } from "./components/reducer";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/contact" element={<div>CONTACT</div>} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<div>checkout</div>} />
+        <Route path="/checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );
