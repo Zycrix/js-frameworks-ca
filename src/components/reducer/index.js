@@ -3,11 +3,13 @@ import React, { useReducer, createContext } from "react";
 const initialState = {
   cart: [],
   total: 0,
+  originalPrice: 0,
 };
 
 function reducer(state, action) {
   let productIndex;
   let newTotal;
+  let newOriginalPrice;
   let cart;
 
   switch (action.type) {
@@ -29,7 +31,16 @@ function reducer(state, action) {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
       }, 0);
-      return { ...state, cart: cart, total: newTotal };
+      newOriginalPrice = cart.reduce((currentTotal, product) => {
+        currentTotal += product.price * product.quantity;
+        return currentTotal;
+      }, 0);
+      return {
+        ...state,
+        cart: cart,
+        total: newTotal,
+        originalPrice: newOriginalPrice,
+      };
     case "removeCart":
       cart = [...state.cart];
       productIndex = cart.findIndex(
@@ -46,18 +57,29 @@ function reducer(state, action) {
             },
             ...cart.slice(productIndex + 1),
           ];
+        } else {
+          cart = [
+            ...cart.slice(0, productIndex),
+            ...cart.slice(productIndex + 1),
+          ];
         }
-      } else {
-        cart = [
-          ...cart.slice(0, productIndex),
-          ...cart.slice(productIndex + 1),
-        ];
       }
+
       newTotal = cart.reduce((currentTotal, product) => {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
       }, 0);
-      return { ...state, cart: cart, total: newTotal };
+      newOriginalPrice = cart.reduce((currentTotal, product) => {
+        currentTotal += product.price * product.quantity;
+        return currentTotal;
+      }, 0);
+
+      return {
+        ...state,
+        cart: cart,
+        total: newTotal,
+        originalPrice: newOriginalPrice,
+      };
     default:
       throw new Error();
   }
@@ -65,8 +87,15 @@ function reducer(state, action) {
 
 const CartContext = createContext();
 const local = JSON.parse(localStorage.getItem("cart"));
+const storedTotal = Number(JSON.parse(localStorage.getItem("total")));
+const storedOriginalPrice = Number(
+  JSON.parse(localStorage.getItem("originalPrice"))
+);
+
 if (local) {
   initialState.cart.push(...local);
+  initialState.total = storedTotal;
+  initialState.originalPrice = storedOriginalPrice;
 }
 function CartProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);

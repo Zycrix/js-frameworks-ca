@@ -60,7 +60,9 @@ function App() {
       <CartContainer>
         <Link to="/cart">
           <span className="material-symbols-outlined">shopping_cart</span>
-          <CartOverlay>{cartItemsLength}</CartOverlay>
+          {cartItemsLength > 0 ? (
+            <CartOverlay>{cartItemsLength}</CartOverlay>
+          ) : null}
         </Link>
       </CartContainer>
     </Nav>

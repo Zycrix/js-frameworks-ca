@@ -268,3 +268,61 @@ export const ReviewContent = styled.div`
     color: #f5d239;
   }
 `;
+
+export const CartImg = styled.img`
+  max-width: 100%;
+  max-height: 10vh;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+`;
+
+export const CartItem = styled.div`
+  display: grid;
+  margin: 1rem 0;
+  grid-template-columns: 1.5fr 4fr 1fr;
+  border-bottom: 1px solid lightgrey;
+  padding: 0.5rem 0;
+  div {
+    padding: 0 1rem;
+    flex-grow: 2;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+  .quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    p {
+      width: calc(100% - 1px);
+      text-align: center;
+    }
+  }
+  button {
+    background-color: ${primaryColor};
+    color: white;
+    border: none;
+    width: 100%;
+  }
+  .add {
+    border-radius: 5px 5px 0 0;
+  }
+  .remove {
+    border-radius: 0 0 5px 5px;
+  }
+`;
+
+export const CartWrapper = styled.div`
+  .cart-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+`;
