@@ -13,7 +13,7 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(state.cart));
     localStorage.setItem("total", JSON.stringify(state.total));
     localStorage.setItem("originalPrice", JSON.stringify(state.originalPrice));
-  }, [state.cart]);
+  }, [state.cart, state.total, state.originalPrice]);
 
   const location = useLocation();
   useEffect(() => {
