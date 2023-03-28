@@ -1,17 +1,33 @@
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../components/reducer";
+import { Main, MainHeading, PrimaryButton } from "../../components/styles";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const { dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch({ type: "clearCart" });
   }, []);
 
+  function backToHome() {
+    navigate("/");
+  }
+
   return (
-    <div>
-      <h1>Checkout Success</h1>
-    </div>
+    <Main>
+      <MainHeading>Thanks for your order!</MainHeading>
+      <div>
+        <p>
+          Your order has been placed and will be processed as soon as possible!
+        </p>
+        <p>Did you miss something?</p>
+        <PrimaryButton onClick={backToHome}>
+          &lt;- Back to homepage
+        </PrimaryButton>
+      </div>
+    </Main>
   );
 }
 

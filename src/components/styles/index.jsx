@@ -209,6 +209,8 @@ export const DiscountOverlay = styled.div`
 
 export const PrimaryButton = styled.button`
   background-color: ${primaryColor};
+  color: white;
+  width: 100%;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;

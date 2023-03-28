@@ -81,7 +81,6 @@ function reducer(state, action) {
         originalPrice: newOriginalPrice,
       };
     case "clearCart":
-      console.log("clearCart");
       return {
         ...state,
         cart: [],
