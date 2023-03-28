@@ -328,3 +328,31 @@ export const CartWrapper = styled.div`
     font-size: 1.2rem;
   }
 `;
+
+export const ContactContainer = styled.div`
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  p {
+    color: red;
+    margin: 0;
+  }
+  .success {
+    color: green;
+    text-align: center;
+  }
+  input,
+  textarea {
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    padding: 0.5rem;
+  }
+  label {
+    padding: 0.5rem 0;
+  }
+  button {
+    margin: 1rem 0;
+  }
+`;

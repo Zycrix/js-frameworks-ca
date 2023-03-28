@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: "clearCart" });
-  }, []);
+  }, [dispatch]);
 
   function backToHome() {
     navigate("/");
