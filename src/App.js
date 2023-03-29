@@ -11,12 +11,14 @@ import { CartContext } from "./components/reducer";
 function App() {
   const { state } = useContext(CartContext);
 
+  //Store cart to local storage to make the data persist trough refresh
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
     localStorage.setItem("total", JSON.stringify(state.total));
     localStorage.setItem("originalPrice", JSON.stringify(state.originalPrice));
   }, [state.cart, state.total, state.originalPrice]);
 
+  //Scroll to top on route change
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -47,16 +47,18 @@ function App() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function submitted() {
+  function submitted(data) {
     setIsSubmitted(true);
     const form = document.querySelector(".contact-form");
+    console.log("Form data:");
+    console.log(data);
     form.reset();
   }
 
   return (
     <form
       className="contact-form"
-      onSubmit={handleSubmit((data) => submitted())}
+      onSubmit={handleSubmit((data) => submitted(data))}
     >
       <label htmlFor="fullName">Full Name</label>
       <input

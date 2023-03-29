@@ -1,13 +1,15 @@
 import React from "react";
-import { Main, MainHeading } from "../../components/styles";
+import { Main, MainHeading, WidthWrapper } from "../../components/styles";
 import CartProductCard from "../../components/CartProductCard";
 
 function App() {
   return (
     <Main>
-      <MainHeading>Your Cart</MainHeading>
-      <hr />
-      <CartProductCard />
+      <WidthWrapper>
+        <MainHeading>Your Cart</MainHeading>
+        <hr />
+        <CartProductCard />
+      </WidthWrapper>
     </Main>
   );
 }

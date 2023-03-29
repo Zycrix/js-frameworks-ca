@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductCard } from "../styles";
+import { ProductCard, ProductContainer } from "../styles";
 import Product from "../product";
 
 function App(props) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <ProductContainer>
       {props.data.map((item) => (
         <ProductCard
           key={item.id}
@@ -16,7 +16,7 @@ function App(props) {
           <Product data={item} />
         </ProductCard>
       ))}
-    </div>
+    </ProductContainer>
   );
 }
 

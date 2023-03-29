@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
 
 const primaryColor = "#5561AD";
-const secondaryColor = "lightblue";
-const activeColor = "red";
-const textColor = "black";
+const secondaryColor = primaryColor;
+const activeColor = "white";
+const textColor = "white";
 const discountColor = "#FA635C";
 const fadedTextColor = "#878787";
 
@@ -18,6 +18,13 @@ export const Header = styled.header`
   z-index: 101;
   width: 100%;
   top: 0;
+  span {
+    color: ${textColor};
+    font-size: 1.5rem;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export const HeaderSpacer = styled.div`
@@ -33,10 +40,15 @@ export const Nav = styled.nav`
   height: 7vh;
   position: relative;
   padding: 0;
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+  }
 `;
 
 export const NavUl = styled.ul`
-  background-color: ${secondaryColor}};
+  background-color: ${secondaryColor};
   padding: 10px 0;
   margin: 0;
   width: 100%;
@@ -48,7 +60,20 @@ export const NavUl = styled.ul`
   li {
     margin: 10px 10px;
     .active {
-      color: ${activeColor}};
+      color: ${activeColor};
+      border-bottom: 2px solid ${activeColor};
+    }
+    a {
+      color: ${textColor};
+    }
+  }
+  @media (min-width: 1200px) {
+    display: block;
+    position: unset;
+    padding: 0;
+    width: auto;
+    li {
+      display: inline-block;
     }
   }
 `;
@@ -60,6 +85,9 @@ export const MenuButton = styled.button`
   margin: 0;
   border: none;
   background-color: transparent;
+  @media (min-width: 1200px) {
+    display: none;
+  }
 `;
 
 export const Input = styled.input`
@@ -67,16 +95,26 @@ export const Input = styled.input`
   margin: 0;
   border-radius: 5px;
   border: 1px solid black;
+  width: 100%;
+  @media (min-width: 768px) {
+    padding: 0.3rem 0.5rem;
+    font-size: 1.2rem;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   align-items: center;
+  width: 40vw;
 `;
 
 export const CartContainer = styled.div`
   padding-right: 10px;
   position: relative;
+  @media (min-width: 1200px) {
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
 
 export const CartOverlay = styled.div`
@@ -91,6 +129,13 @@ export const CartOverlay = styled.div`
   top: 0;
   left: 0;
   transform: translate(50%, -50%);
+  @media (min-width: 768px) {
+    left: 10px;
+  }
+  @media (min-width: 1200px) {
+    right: 15px;
+    left: unset;
+  }
 `;
 
 export const Footer = styled.footer`
@@ -130,12 +175,28 @@ export const LoaderContainer = styled.div`
 export const Main = styled.main`
   width: 90%;
   margin: 0 auto;
+  @media (min-width: 1200px) {
+    width: 70%;
+  }
 `;
 
 export const MainHeading = styled.h1`
   text-align: center;
 `;
 
+export const ProductContainer = styled.div`
+  @media (min-width: 520px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
 export const ProductCard = styled.div`
   width: 100%;
   border-radius: 1rem;
@@ -144,11 +205,16 @@ export const ProductCard = styled.div`
   cursor: pointer;
   position: relative;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   img {
     width: 100%;
     max-height: 40vh;
     object-fit: cover;
-    object-position: center;
+    object-position: 50% 50%;
+    /* I know this is not an optimal solution but i think it was the best way of doing this since we can't edit the photos */
+    aspect-ratio: 1/1;
   }
 `;
 
@@ -214,12 +280,16 @@ export const PrimaryButton = styled.button`
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
+  font-size: 1.3rem;
 `;
 
 export const ProductImg = styled.img`
   width: 100%;
-  max-height: 40vh;
+  /* max-height: 40vh; */
   object-fit: cover;
+  @media (min-width: 550px) {
+    max-height: 60vh;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -253,6 +323,28 @@ export const ReviewContainer = styled.div`
   }
 `;
 
+export const SpecificContainer = styled.div`
+  margin: 0 auto;
+  overflow: hidden;
+  @media (min-width: 500px) {
+    width: 80%;
+  }
+  @media (min-width: 768px) {
+    width: 60%;
+    img {
+      height: 60vh !important;
+    }
+  }
+  @media (min-width: 1000px) {
+    width: 50%;
+  }
+  @media (min-width: 1200px) {
+    width: 40%;
+  }
+  @media (min-width: 1400px) {
+    width: 30%;
+  }
+`;
 export const ReviewContent = styled.div`
   display: flex;
   justify-content: space-between;
@@ -354,5 +446,14 @@ export const ContactContainer = styled.div`
   }
   button {
     margin: 1rem 0;
+  }
+`;
+export const WidthWrapper = styled.div`
+  @media (min-width: 768px) {
+    width: 70%;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px) {
+    width: 50%;
   }
 `;

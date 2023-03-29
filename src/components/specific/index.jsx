@@ -1,12 +1,17 @@
 import React from "react";
-import { Description, ReviewContainer, ReviewContent } from "../styles";
+import {
+  Description,
+  ReviewContainer,
+  ReviewContent,
+  SpecificContainer,
+} from "../styles";
 import Product from "../product";
 
 function App(params) {
   const item = params.data;
 
   return (
-    <div>
+    <SpecificContainer>
       <Product data={item} />
       <Description>
         <p>{item.description}</p>
@@ -29,7 +34,7 @@ function App(params) {
             </section>
           ))}
       </ReviewContainer>
-    </div>
+    </SpecificContainer>
   );
 }
 
