@@ -4,6 +4,7 @@ const initialState = {
   cart: [],
   total: 0,
   originalPrice: 0,
+  products: [],
 };
 
 function reducer(state, action) {
@@ -87,6 +88,8 @@ function reducer(state, action) {
         total: 0,
         originalPrice: 0,
       };
+    case "addProducts":
+      return { ...state, products: action.payload };
     default:
       throw new Error();
   }

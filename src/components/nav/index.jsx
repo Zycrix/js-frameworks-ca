@@ -1,21 +1,23 @@
 import React, { useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { CartContext } from "../reducer";
+import SearchBar from "../searchBar";
 import {
   Nav,
   NavUl,
-  Input,
   MenuButton,
   Form,
   CartContainer,
   CartOverlay,
 } from "../styles";
 
-function App() {
+function App(props) {
   const path = window.location.pathname;
   const [open, setOpen] = useState(false);
   const { state } = useContext(CartContext);
   let cartItemsLength = 0;
+  const products = state.products;
+
   function toggleMenu() {
     setOpen(!open);
   }
@@ -54,7 +56,7 @@ function App() {
       </NavUl>
       <div>
         <Form>
-          <Input type="text" placeholder="Search products" />
+          <SearchBar data={products} />
         </Form>
       </div>
       <CartContainer>

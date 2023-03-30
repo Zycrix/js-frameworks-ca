@@ -49,7 +49,7 @@ function App() {
         <h3>Total:</h3>
         <p>{total.toFixed(2)} ,-</p>
       </div>
-      <PrimaryButton onClick={() => navigate("/checkout")}>
+      <PrimaryButton disabled={total < 1} onClick={() => navigate("/checkout")}>
         Checkout
       </PrimaryButton>
     </CartWrapper>

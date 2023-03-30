@@ -281,6 +281,10 @@ export const PrimaryButton = styled.button`
   border: none;
   border-radius: 5px;
   font-size: 1.3rem;
+  :disabled {
+    opacity: 0.2;
+    background-color: red !important;
+  }
 `;
 
 export const ProductImg = styled.img`
@@ -456,4 +460,17 @@ export const WidthWrapper = styled.div`
   @media (min-width: 1200px) {
     width: 50%;
   }
+`;
+
+export const SearchContainer = styled.div`
+  position: relative;
+`;
+export const SearchOverlay = styled.div`
+  position: absolute;
+  background-color: red;
+  width: 100%;
+  padding: 0.2rem 0.3rem;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
 `;
