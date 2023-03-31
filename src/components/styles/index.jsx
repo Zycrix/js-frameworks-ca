@@ -105,6 +105,7 @@ export const Input = styled.input`
 export const Form = styled.form`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 40vw;
 `;
 
@@ -467,10 +468,30 @@ export const SearchContainer = styled.div`
 `;
 export const SearchOverlay = styled.div`
   position: absolute;
-  background-color: red;
-  width: 100%;
+  background-color: white;
+  width: 180%;
+  left: -40%;
   padding: 0.2rem 0.3rem;
   border: 1px solid transparent;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+`;
+export const SearchItem = styled.div`
+  display: flex;
+  border-bottom: 1px solid black;
+  img {
+    max-width: 100%;
+    max-height: 10vh;
+    border-radius: 5px;
+    margin: auto 0.2rem;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  div {
+    margin: 0 0.5rem;
+  }
 `;
