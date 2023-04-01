@@ -298,7 +298,7 @@ export const PrimaryButton = styled.button`
       background-color: white;
       border: 0.2rem solid ${primaryColor};
       color: ${primaryColor};
-      padding: 0.33rem 0.9rem !important;
+      padding: 0.3rem 0.9rem !important;
       cursor: pointer;
     }
   }
