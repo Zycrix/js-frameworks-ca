@@ -50,6 +50,7 @@ function App() {
   function submitted(data) {
     setIsSubmitted(true);
     const form = document.querySelector(".contact-form");
+    console.log(data);
     form.reset();
   }
 
