@@ -12,17 +12,9 @@ function useApi(url) {
         setLoading(true);
         setError(false);
 
-        if (window.localStorage.getItem("data") !== null) {
-          console.log("fetching data from local storage");
-          setData(JSON.parse(window.localStorage.getItem("data")));
-          return;
-        } else {
-          console.log("fetching data from api");
-          const data = await fetch(url);
-          const json = await data.json();
-          setData(json);
-          // window.localStorage.setItem("data", JSON.stringify(json));
-        }
+        const data = await fetch(url);
+        const json = await data.json();
+        setData(json);
       } catch (e) {
         console.log(e);
         setError(true);

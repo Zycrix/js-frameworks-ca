@@ -11,7 +11,6 @@ function App(props) {
 
   function handleSearch(e) {
     setSearchInput(e.target.value);
-    console.log(e);
   }
 
   useEffect(() => {
@@ -22,8 +21,7 @@ function App(props) {
       filteredProducts = [];
     }
     setSearchResults(filteredProducts);
-    console.log(searchResults);
-  }, [searchInput]);
+  }, [searchInput, products]);
 
   function handleNavigate(id) {
     setSearchInput("");
