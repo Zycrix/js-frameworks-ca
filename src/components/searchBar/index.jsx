@@ -5,6 +5,7 @@ import { Input, SearchOverlay, SearchContainer, SearchItem } from "../styles";
 function App(props) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [showOverlay, setShowOverlay] = useState(true);
   const products = props.data;
   const navigate = useNavigate();
 
@@ -35,8 +36,10 @@ function App(props) {
         placeholder="Search by title"
         value={searchInput}
         onChange={(e) => handleSearch(e)}
+        onFocus={() => setShowOverlay(true)}
+        onBlur={(e) => setShowOverlay(false)}
       />
-      {searchResults.length > 0 ? (
+      {showOverlay && searchResults.length > 0 ? (
         <SearchOverlay>
           {searchResults.map((product) => {
             return (
