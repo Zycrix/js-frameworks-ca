@@ -293,15 +293,6 @@ export const PrimaryButton = styled.button`
     opacity: 0.2;
     background-color: red !important;
   }
-  @media (min-width: 1200px) {
-    :hover {
-      background-color: white;
-      border: 0.2rem solid ${primaryColor};
-      color: ${primaryColor};
-      padding: 0.3rem 0.9rem !important;
-      cursor: pointer;
-    }
-  }
 `;
 
 export const ProductImg = styled.img`
