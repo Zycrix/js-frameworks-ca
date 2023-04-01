@@ -217,6 +217,12 @@ export const ProductCard = styled.div`
     /* I know this is not an optimal solution but i think it was the best way of doing this since we can't edit the photos */
     aspect-ratio: 1/1;
   }
+  @media (min-width: 1200px) {
+    :hover {
+      transform: scale(1.02);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -275,6 +281,7 @@ export const DiscountOverlay = styled.div`
 `;
 
 export const PrimaryButton = styled.button`
+  box-sizing: border-box;
   background-color: ${primaryColor};
   color: white;
   width: 100%;
@@ -285,6 +292,15 @@ export const PrimaryButton = styled.button`
   :disabled {
     opacity: 0.2;
     background-color: red !important;
+  }
+  @media (min-width: 1200px) {
+    :hover {
+      background-color: white;
+      border: 0.2rem solid ${primaryColor};
+      color: ${primaryColor};
+      padding: 0.33rem 0.9rem !important;
+      cursor: pointer;
+    }
   }
 `;
 
